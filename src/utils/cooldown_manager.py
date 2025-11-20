@@ -65,16 +65,3 @@ class CoolDownManager:
                 await asyncio.sleep(wait_time)
 
         self.update_req_cache(domain)
-
-
-async def main():
-    manager = CoolDownManager(min_request_interval=None)
-
-    for i in range(3):
-        await manager.cooldown("funpay.com")
-
-    await manager.session_close()
-
-
-if __name__ == "__main__":
-    asyncio.run(main())
